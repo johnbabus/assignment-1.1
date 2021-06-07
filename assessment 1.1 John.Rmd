@@ -1,0 +1,39 @@
+---
+title: "Assessment 1.1"
+author: "Johan Babu Shaik"
+date: "08/06/2021"
+output: html_document
+---
+
+
+#RMarkdown editing
+
+#*R Markdown documents provide quick, reproducible reporting from R. *You write your document in markdown and embed executable R code chunks with the knitr syntax. *You can update your document at any time by re-knitting the code chunks*.
+
+#inserted an in-text link
+-[https://rmarkdown.rstudio.com/lesson-8.html]
+
+
+```{r}
+library(tidyverse) #used library to load tidyverse package.
+
+#importing csv file into variable fastfood.
+fastfood<-read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-09-04/fastfood_calories.csv")
+
+#creating new varible fast_food and assigning to fastfood to use head() and display first 10 observations.
+fast_food<-fastfood%>%head(10)
+```
+
+```{r}
+
+#filtering fast_food for calories>1000.
+fast_food%>%filter(calories > 1000)
+
+#creating a new variable dont_eat_this and filtering total_fat and total_carb.
+dont_eat_this<-fast_food%>%filter(total_fat>40 & total_carb>80)
+```
+
+```{r}
+#using subset() to display observations from restaurant Mcdonalds.
+subset(fastfood,restaurant=="Mcdonalds")
+```
